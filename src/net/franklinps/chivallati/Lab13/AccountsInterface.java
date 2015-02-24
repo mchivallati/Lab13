@@ -10,4 +10,8 @@ public interface AccountsInterface
 
 	public void deposit( double amount );
 
+	public void withdraw( double amount );
+
+	public String toString();
+
 }
