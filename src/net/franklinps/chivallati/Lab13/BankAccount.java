@@ -22,7 +22,7 @@ public class BankAccount implements AccountsInterface
 
 	}
 
-	public BankAccount( double balance , String firstName , String lastName , int accountPIN)
+	public BankAccount( String firstName , String lastName , int accountPIN)
 	{
 
 		try(
@@ -40,7 +40,7 @@ public class BankAccount implements AccountsInterface
 			      }
 			    }
 			    catch(Throwable ex){ // Catches all possible exceptions, which will then assume account is new and will be created below.
-					this.balance = balance; 
+					balance = 0;
 					setAccountID();
 					setName( firstName , lastName );
 					saveAccount();
