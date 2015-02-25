@@ -11,7 +11,8 @@ public class BankAccount implements AccountsInterface
 	private double balance;
 	private long accountID;
 	private String name;
-
+	private String shaPIN;
+	
 	public BankAccount()
 	{
 
@@ -21,7 +22,7 @@ public class BankAccount implements AccountsInterface
 
 	}
 
-	public BankAccount( double balance , String firstName , String lastName )
+	public BankAccount( double balance , String firstName , String lastName , int accountPIN)
 	{
 
 		try(
@@ -30,9 +31,13 @@ public class BankAccount implements AccountsInterface
 			      ObjectInput input = new ObjectInputStream (buffer);
 			    ){
 			      String[] recoveredAccount = (String[])input.readObject();
-					this.balance = Double.parseDouble(recoveredAccount[1]);
-					accountID = Long.valueOf(recoveredAccount[0]);
-					setName( firstName , lastName );
+			      String tmpPIN = Util.SHA256(String.valueOf(accountPIN));
+			      if (tmpPIN.equals(recoveredAccount[3])) {
+						this.balance = Double.parseDouble(recoveredAccount[1]);
+						shaPIN = tmpPIN;
+						accountID = Long.valueOf(recoveredAccount[0]);
+						setName( firstName , lastName );
+			      }
 			    }
 			    catch(Throwable ex){ // Catches all possible exceptions, which will then assume account is new and will be created below.
 					this.balance = balance; 
@@ -81,10 +86,11 @@ public class BankAccount implements AccountsInterface
 	
 	private void saveAccount()
 	{
-		String[] accountData = new String[3];
+		String[] accountData = new String[4];
 		accountData[0] = Long.toString(accountID);
 		accountData[1] = Double.toString(balance);
 		accountData[2] = name;
+		accountData[3] = shaPIN;
 		 try (
 			      OutputStream file = new FileOutputStream(name + ".account");
 			      OutputStream buffer = new BufferedOutputStream(file);
