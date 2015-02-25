@@ -6,6 +6,7 @@ package net.franklinps.chivallati.Lab13;
 public interface Bank
 {
 
-
+	public int getNumAccounts();
+	public double getTotalMoney();
 
 }
