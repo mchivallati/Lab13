@@ -14,6 +14,8 @@ public abstract class BankBranch implements Bank
 
 		location = "";
 		branchName = "";
+		
+		// create a data base for bank accounts when a Bank Branch is created
 
 	}
 
@@ -25,10 +27,10 @@ public abstract class BankBranch implements Bank
 
 	}
 
-	protected String getLocation() { return this.location; }
+	public String getLocation() { return this.location; }
 
-	protected String getBranchName() { return this.branchName; }
-
-
+	public String getBranchName() { return this.branchName; }
+	
+	protected abstract void addAccount();
 
 }

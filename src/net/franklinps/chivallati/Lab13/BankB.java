@@ -16,17 +16,10 @@ public class BankB extends BankBranch
 	{
 
 		super( "Wrentham" , "Dean Bank of Wrentham" );
-		// we need to figure out a way to add bank accounts dynamically to a branch
-
 
 	}
 
-	public int getNumAccounts()
-	{
-
-		return bankAccounts.size();
-
-	}
+	public int getNumAccounts() { return bankAccounts.size(); }
 	public void setTotalMoney()
 	{
 
@@ -39,10 +32,21 @@ public class BankB extends BankBranch
 
 	}
 
-	public double getTotalMoney()
+	public double getTotalMoney() { return totalMoney; }
+
+	protected void addAccount()
 	{
 
-		return totalMoney;
+		//add accounts to the data base specific to bankB
+
+	}
+
+	public ArrayList< BankAccount > getBankAccounts() { return bankAccounts; }
+
+	private void setBankAccounts()
+	{
+
+		//read the accounts database file for bankB and add the BankAccount objects into a dynamic array
 
 	}
 

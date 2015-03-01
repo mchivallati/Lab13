@@ -8,41 +8,44 @@ import java.util.ArrayList;
 public class BankC extends BankBranch
 {
 
-	private ArrayList<BankAccount> bankAccounts;
+	private ArrayList< BankAccount > bankAccounts;
 	private int totalMoney;
 
 
-	public BankC()
+	public BankC( )
 	{
 
-		super( "Medway" , "Dean Bank of Medway" );
-		// we need to figure out a way to add bank accounts dynamically to a branch
-
+		super( "Medway", "Dean Bank of Medway" );
 
 	}
 
-	public int getNumAccounts()
-	{
+	public int getNumAccounts( ) { return bankAccounts.size(); }
 
-		return bankAccounts.size();
-
-	}
-	public void setTotalMoney()
+	public void setTotalMoney( )
 	{
 
 		for ( int i = 0 ; i < bankAccounts.size() ; i++ )
 		{
 
-			totalMoney += bankAccounts.get(i).getBalance();
+			totalMoney += bankAccounts.get( i ).getBalance();
 
 		}
 
 	}
 
-	public double getTotalMoney()
-	{
+	public double getTotalMoney( ) { return totalMoney; }
 
-		return totalMoney;
+	protected void addAccount( ) {
+
+		//add accounts to the data base specific to bankC
+
+	}
+
+	public ArrayList< BankAccount > getBankAccounts() { return bankAccounts; }
+
+	private void setBankAccounts( ) {
+
+		//read the accounts database file for bankC and add the BankAccount objects into a dynamic array
 
 	}
 
