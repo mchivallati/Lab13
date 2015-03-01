@@ -37,8 +37,15 @@ public class BankC extends BankBranch
 
 	protected void addAccount( ) {
 
-		//add accounts to the data base specific to bankC
+		//add account to the data base specific to bankC
 
+	}
+
+	protected void removeAccount()
+	{
+
+		//remove an account from the data base specific to bankC
+		
 	}
 
 	public ArrayList< BankAccount > getBankAccounts() { return bankAccounts; }

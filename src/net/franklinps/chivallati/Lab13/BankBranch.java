@@ -32,5 +32,7 @@ public abstract class BankBranch implements Bank
 	public String getBranchName() { return this.branchName; }
 	
 	protected abstract void addAccount();
+	
+	protected abstract void removeAccount();
 
 }

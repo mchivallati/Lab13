@@ -37,7 +37,14 @@ public class BankB extends BankBranch
 	protected void addAccount()
 	{
 
-		//add accounts to the data base specific to bankB
+		//add an account to the data base specific to bankB
+
+	}
+
+	protected void removeAccount()
+	{
+
+		//remove account from the data base specific to banB
 
 	}
 
