@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class BankC extends BankBranch
 {
 
-	private ArrayList< BankAccount > bankAccounts;
+	private ArrayList<BankAccount> bankAccounts = new ArrayList();
 	private int totalMoney;
 
 
@@ -16,6 +16,8 @@ public class BankC extends BankBranch
 	{
 
 		super( "Medway", "Dean Bank of Medway" );
+		setBankAccounts();
+		setTotalMoney();
 
 	}
 
@@ -24,10 +26,9 @@ public class BankC extends BankBranch
 	public void setTotalMoney( )
 	{
 
-		for ( int i = 0 ; i < bankAccounts.size() ; i++ )
-		{
+		for ( BankAccount bankAccount : bankAccounts ) {
 
-			totalMoney += bankAccounts.get( i ).getBalance();
+			totalMoney += bankAccount.getBalance();
 
 		}
 
@@ -50,9 +51,29 @@ public class BankC extends BankBranch
 
 	public ArrayList< BankAccount > getBankAccounts() { return bankAccounts; }
 
-	private void setBankAccounts( ) {
+	private void setBankAccounts()
+	{
 
-		//read the accounts database file for bankC and add the BankAccount objects into a dynamic array
+		BankAccount john = new BankAccount( "John" , "Smith" , 9887 );
+		BankAccount yaBoiMit = new BankAccount( "Mit" , "Romney" , 6545 );
+
+		bankAccounts.add(john);
+		bankAccounts.add(yaBoiMit);
+
+	}
+
+	public void displayBank()
+	{
+
+		System.out.println( "BankC Location: " + location + " | BankC Name: " + branchName );
+		System.out.println( "Bank Accounts" );
+		System.out.println();
+
+		for ( BankAccount bankAccount : bankAccounts ) {
+
+			System.out.println( bankAccount.toString() );
+
+		}
 
 	}
 

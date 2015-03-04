@@ -12,6 +12,7 @@ public class BankAccount implements AccountsInterface
 	private long accountID;
 	private String name;
 	private String shaPIN;
+	private int accountPIN;
 	
 	public BankAccount()
 	{
@@ -25,7 +26,7 @@ public class BankAccount implements AccountsInterface
 	public BankAccount( String firstName , String lastName , int accountPIN)
 	{
 
-		try(
+		/*try(
 			      InputStream file = new FileInputStream(lastName + ", " + firstName + ".account");
 			      InputStream buffer = new BufferedInputStream(file);
 			      ObjectInput input = new ObjectInputStream (buffer);
@@ -44,7 +45,13 @@ public class BankAccount implements AccountsInterface
 					setAccountID();
 					setName( firstName , lastName );
 					saveAccount();
-			    }
+			    }*/
+
+		balance = 0;
+		setAccountID();
+		setName( firstName , lastName );
+		this.accountPIN = accountPIN;
+
 	}
 
 	public double getBalance() { return balance; }
@@ -53,14 +60,14 @@ public class BankAccount implements AccountsInterface
 	{
 
 		this.balance += amount;
-		saveAccount();
+		//saveAccount();
 	}
 
 	public void withdraw( double amount )
 	{
 
 		this.balance -= amount;
-		saveAccount();
+		//saveAccount();
 	}
 
 	private void setAccountID()
@@ -80,11 +87,11 @@ public class BankAccount implements AccountsInterface
 	public String toString()
 	{
 
-		return "[ " + "$" + ( Math.round( balance * 100.0 ) / 100.0 ) + ", " + accountID + ", " + name + " ]";
+		return "[ " + "$" + ( Math.round( balance * 100.0 ) / 100.0 ) + ", " + accountID + ", " + name + ", " + accountPIN + " ]";
 
 	}
 	
-	private void saveAccount()
+	/*private void saveAccount()
 	{
 		String[] accountData = new String[4];
 		accountData[0] = Long.toString(accountID);
@@ -101,6 +108,6 @@ public class BankAccount implements AccountsInterface
 			    catch(IOException ex){
 			      System.out.println("Couldn't save file!");
 			    }
-	}
+	}*/
 
 }

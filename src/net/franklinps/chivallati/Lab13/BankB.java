@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class BankB extends BankBranch
 {
 
-	private ArrayList<BankAccount> bankAccounts;
+	private ArrayList<BankAccount> bankAccounts = new ArrayList();
 	private int totalMoney;
 
 
@@ -16,6 +16,8 @@ public class BankB extends BankBranch
 	{
 
 		super( "Wrentham" , "Dean Bank of Wrentham" );
+		setBankAccounts();
+		setTotalMoney();
 
 	}
 
@@ -53,7 +55,26 @@ public class BankB extends BankBranch
 	private void setBankAccounts()
 	{
 
-		//read the accounts database file for bankB and add the BankAccount objects into a dynamic array
+		BankAccount joe = new BankAccount( "Joe" , "Shmo" , 2345 );
+		BankAccount obama = new BankAccount( "Barrack" , "Obama" , 8765 );
+
+		bankAccounts.add(joe);
+		bankAccounts.add(obama);
+
+	}
+
+	public void displayBank()
+	{
+
+		System.out.println( "BankB Location: " + location + " | BankB Name: " + branchName );
+		System.out.println( "Bank Accounts" );
+		System.out.println();
+
+		for ( BankAccount bankAccount : bankAccounts ) {
+
+			System.out.println( bankAccount.toString() );
+
+		}
 
 	}
 

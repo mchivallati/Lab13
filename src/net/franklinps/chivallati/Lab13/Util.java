@@ -18,7 +18,7 @@ public class Util
 
 	}
 	
-	public static String SHA256( String input ){
+	/*public static String SHA256( String input ){
 		MessageDigest digest = MessageDigest.getInstance("SHA-256");
 		byte[] hash = digest.digest(input.getBytes("UTF-8"));
 		StringBuffer hexString = new StringBuffer();
@@ -30,6 +30,6 @@ public class Util
         }
 
         return hexString.toString();
-	}
+	}*/
 
 }

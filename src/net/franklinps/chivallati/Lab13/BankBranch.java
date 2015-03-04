@@ -1,5 +1,7 @@
 package net.franklinps.chivallati.Lab13;
 
+import java.io.*;
+
 /**
  * Created by CompSci-04 on 2/23/2015.
  */
@@ -14,8 +16,6 @@ public abstract class BankBranch implements Bank
 
 		location = "";
 		branchName = "";
-		
-		// create a data base for bank accounts when a Bank Branch is created
 
 	}
 
